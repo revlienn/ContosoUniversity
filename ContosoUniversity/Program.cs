@@ -33,4 +33,17 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+using var scope = app.Services.CreateScope(); //access to all services inside this Program.cs
+var services = scope.ServiceProvider;
+try
+{
+    var context = services.GetRequiredService<SchoolContext>();
+    DbInitializer.Initialize(context);
+}
+catch (Exception ex)
+{
+    var logger = services.GetService<ILogger<Program>>();
+    logger.LogError(ex, "An Error Occured during migration");
+}
+
 app.Run();
