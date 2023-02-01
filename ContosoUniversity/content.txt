@@ -1,0 +1,12 @@
+﻿PAGE 1
+
+2. Create the database context
+3. Initialize DB with test data
+4. Create controller and views
+
+PAGE 2
+
+5. Customize the Details page, Update the Create page
+	reading data from Connector and the other 'many' table (course)
+	refresh course and student entity, many to many
+	git: 5-p2. Add details from other 'many' table, update create
